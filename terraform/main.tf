@@ -199,3 +199,63 @@ resource "proxmox_virtual_environment_vm" "whings_server" {
 output "whings_ipv4_address" {
   value = try(proxmox_virtual_environment_vm.whings_server.ipv4_addresses[1][0], "IP не получен")
 }
+
+
+resource "proxmox_virtual_environment_vm" "dev_server" {
+
+  vm_id = var.vm_id_3
+
+  name      = var.vm_id_3_name
+  node_name = var.node_name
+  tags      = var.tags_vm3
+
+  clone {
+    vm_id = var.vm_id_template
+    full  = true
+  }
+
+  agent {
+    enabled = var.proxmox_agent
+    timeout = "2m"
+  }
+
+  cpu {
+    cores = var.vm_id_3_cpu
+  }
+
+  memory {
+    dedicated = var.vm_id_3_memory
+    floating  = var.vm_id_3_floating
+  }
+
+  disk {
+    datastore_id = var.vm_id_3_datastore_id
+    interface    = var.interface
+    size         = var.vm_id_3_disksize
+  }
+
+
+  initialization {
+    dns {
+      servers = var.vm_dns_list
+    }
+    ip_config {
+      ipv4 {
+        address = var.vm_id_3_address
+        gateway = var.vm_id_3_gateway
+      }
+    }
+
+    vendor_data_file_id = "local:snippets/install-qemu.yaml"
+
+    user_account {
+      username = var.vm_user_account
+      keys     = [trimspace(file(pathexpand(var.vm_user_key)))]
+    }
+  }
+}
+
+
+output "whings_ipv4_address" {
+  value = try(proxmox_virtual_environment_vm.dev_server.ipv4_addresses[1][0], "IP не получен")
+}

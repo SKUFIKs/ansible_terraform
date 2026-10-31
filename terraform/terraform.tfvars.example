@@ -54,3 +54,15 @@ vm_id_2_datastore_id = "local-lvm"
 vm_id_2_disksize     = 40
 vm_id_2_address      = "192.168.1.102/24"
 vm_id_2_gateway      = "192.168.1.1"
+
+# vm settings 3
+vm_id_3              = 102
+vm_id_3_name         = "db-node-01"
+tags_vm3             = ["terraform", "database"]
+vm_id_3_cpu          = 4
+vm_id_3_memory       = 4096
+vm_id_3_floating     = 0
+vm_id_3_datastore_id = "local-lvm"
+vm_id_3_disksize     = 40
+vm_id_3_address      = "192.168.1.102/24"
+vm_id_3_gateway      = "192.168.1.1"

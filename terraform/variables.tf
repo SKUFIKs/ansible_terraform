@@ -184,3 +184,40 @@ variable "vm_id_2_address" {
 variable "vm_id_2_gateway" {
   type = string
 }
+
+variable "vm_id_3" {
+  type = string
+}
+
+variable "vm_id_3_name" {
+  type = string
+}
+
+variable "vm_id_3_cpu" {
+  type = number
+}
+
+variable "vm_id_3_memory" {
+  type = number
+}
+
+variable "vm_id_3_floating" {
+  type = number
+}
+
+
+variable "vm_id_3_datastore_id" {
+  type = string
+}
+
+variable "vm_id_3_disksize" {
+  type = number
+}
+
+variable "vm_id_3_address" {
+  type = string
+}
+
+variable "vm_id_3_gateway" {
+  type = string
+}
