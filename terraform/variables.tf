@@ -189,6 +189,10 @@ variable "vm_id_3" {
   type = string
 }
 
+variable "tags_vm3" {
+  type = list(string)
+}
+
 variable "vm_id_3_name" {
   type = string
 }
