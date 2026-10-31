@@ -256,6 +256,6 @@ resource "proxmox_virtual_environment_vm" "dev_server" {
 }
 
 
-output "whings_ipv4_address" {
+output "dev__ipv4_address" {
   value = try(proxmox_virtual_environment_vm.dev_server.ipv4_addresses[1][0], "IP не получен")
 }
